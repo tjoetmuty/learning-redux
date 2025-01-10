@@ -8,13 +8,12 @@ import {
 import { useState } from "react";
 
 export default function Counter() {
-  const { value, name } = useSelector((state) => state.counter);
+  const {value } = useSelector((state) => state.counter);
   const dispatch = useDispatch();
   const [amount, setAmount] = useState();
 
   return (
     <>
-      <h2>{name}</h2>
       <div>
         amount:
         <input type="number" onChange={(e) => setAmount(e.target.value)} />
@@ -23,11 +22,11 @@ export default function Counter() {
         </button>
       </div>
       <div>
-        <button onClick={() => dispatch(increment())}>Increment</button>
-        <span>{value}</span>
         <button onClick={() => dispatch(decrement())}>Decrement</button>
-        <button onClick={() => dispatch(changeName())}>change name</button>
+        <span>{value}</span>
+        <button onClick={() => dispatch(increment())}>Increment</button>
       </div>
+        <button onClick={() => dispatch(changeName())}>change name</button>
     </>
   );
 }
